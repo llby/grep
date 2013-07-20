@@ -21,7 +21,7 @@ http://d.hatena.ne.jp/llby
 
 
 継続的grepについては、こちらを参照してください。  
-http://d.hatena.ne.jp/llby
+http://d.hatena.ne.jp/llby/20130720/1374292275
 
 
 デモは、serverの中がgrep出来てしまうため公開していません。
