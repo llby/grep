@@ -28,11 +28,11 @@
 		</tr>
 	</thead>
 	<tbody>
-	<?php foreach ($grepresults as $grepresult ): ?>
+	<?php foreach ($grepresults as $key => $grepresult ): ?>
         	<tr>
                         <td><?php echo $grepresult->file_name; ?></td>
                         <td><?php echo $grepresult->line_number; ?></td>
-                        <td><?php echo $grepresult->result; ?></td>
+                        <td><?php echo $results[$key]; ?></td>
                 </tr>
         <?php endforeach; ?>
         </tbody>

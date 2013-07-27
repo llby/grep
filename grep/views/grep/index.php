@@ -18,7 +18,7 @@
 				<?php echo Html::anchor('grep/view/'.$grep->id, 'View'); ?> |
 				<?php echo Html::anchor('grep/edit/'.$grep->id, 'Edit'); ?> |
 				<?php echo Html::anchor('grep/delete/'.$grep->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?> |
-				<?php echo Html::anchor('grep/grepcondition/index/'.$grep->id, 'Condition'); ?>
+				<?php echo Html::anchor('grep/grepcondition/index/'.$grep->id, 'Condition　→'); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

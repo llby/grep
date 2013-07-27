@@ -27,9 +27,29 @@ class Controller_Grepcondition extends \Controller_Base
 			),
 		));
 
+		// ファイルを開いて中身を取得する
+		$safe_data['results'] = array();
+		foreach( $data['grepresults'] as $key => $val ) {
+			
+			$safe_data['results'][$key] = "<pre>";
+			$line =$val->line_number;
+			$fp = fopen($val->file_name, 'r');
+			$number = 1;
+			while (!feof($fp)) {
+
+				$line = fgets($fp);
+				if ( $number >= ($val->line_number - 3) and $number <= ($val->line_number + 3)) {
+					$safe_data['results'][$key] .= $line;
+				}
+				$number++;
+			}
+			$safe_data['results'][$key] .= "</pre>";
+			fclose($fp);
+		}
+
 		$this->template->title = "Grepcondition";
 		$this->template->content = \View::forge('grepcondition/view', $data);
-
+		$this->template->content->set_safe('results', $safe_data['results']);
 	}
 
 	public function action_create($grep_id = null)

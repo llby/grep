@@ -8,10 +8,9 @@ class Helper_Grep_Util
 		$grep = Model_Grep::find($grep_id);
 		if ($grepcondition = Model_Grepcondition::find($id))
 		{
-			$grep_str  = "grep -Hinr ";
+			$grep_str  = "grep -HIinr --exclude-dir=.svn --exclude-dir=.git ";
 			$grep_str .= "'".$grepcondition->condition."' ";
 			$grep_str .= $grep->path;
-			$grep_str .= " | grep -v '.svn' ";
 			$res = shell_exec( $grep_str );
 
 			// 前回の結果を削除する

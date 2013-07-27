@@ -18,7 +18,7 @@
 			<td><?php echo $grepcondition->condition; ?></td>
 			<td><?php echo $grepcondition->kind; ?></td>
 			<td><?php echo $grepcondition->comment; ?></td>
-			<td><?php echo "grep -Hinr ".$grepcondition->condition." ".$grep->path; ?></td>
+			<td><?php echo "grep -HIinr --exclude-dir=.svn --exclude-dir=.git ".$grepcondition->condition." ".$grep->path; ?></td>
 			<td>
 				<?php echo Html::anchor('grep/grepcondition/view/'.$grep->id."/".$grepcondition->id, 'View'); ?> |
 				<?php echo Html::anchor('grep/grepcondition/edit/'.$grep->id."/".$grepcondition->id, 'Edit'); ?> |
@@ -36,4 +36,7 @@
 <?php endif; ?>
 <p>
 	<?php echo Html::anchor('grep/grepcondition/create/'.$grep->id, 'Add new Grepcondition', array('class' => 'btn btn-success')); ?>
+</p>
+<p>
+	<?php echo Html::anchor('grep/grep/index', 'Back'); ?>
 </p>
